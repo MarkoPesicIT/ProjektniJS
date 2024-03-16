@@ -7,6 +7,7 @@ body,html{
       align-items: center;
       height: 100vh;
       background-color: #252525;
+      overflow-y: hidden;
 }
 *{
       color: white;
@@ -25,9 +26,6 @@ body,html{
 .container{
       column-count: 2;
       column-gap: 2rem;
-}
-.ms{
-      column-count: 3;
 }
 .bit{
       margin-bottom: 2rem;
@@ -88,3 +86,36 @@ body,html{
       background: #4CAF50;
       cursor: pointer;
   }
+
+  .sabiranjeSati,
+.sabiranjeMinuti,
+.sabiranjeSekunde,
+.sabiranjeMilisekunde {
+    display: block;
+    margin-top: 1rem;
+}
+
+.sabiranjeSati span,
+.sabiranjeMinuti span,
+.sabiranjeSekunde span,
+.sabiranjeMilisekunde span {
+    margin: 0 0.5rem;
+}
+
+.vreme {
+    margin-top: 3rem;
+}
+
+.sat,
+.minut,
+.sekunda,
+.milisekunda {
+    padding: 0.5rem 1rem;
+    background-color: #272727;
+    border-radius: 0.5rem;
+}
+
+.h1 {
+    font-size: 2rem;
+    margin-top: 2rem;
+}
