@@ -1,83 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="style.css">
-      <script src="script.js" defer></script>
-      <title>Binarni Sat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Binarni Sat</title>
 </head>
 <body>
-      <div class="sat-container">
-            <div class="sati">
-                  <h1>SATI</h1>
-                  <div class="container">
-                        <div class="bit sat-bit" id="hour-bit-1"></div>
-                        <div class="bit sat-bit" id="hour-bit-2"></div>
-                        <div class="bit sat-bit" id="hour-bit-4"></div>
-                        <div class="bit sat-bit" id="hour-bit-8"></div>
-                        <div class="bit sat-bit" id="hour-bit-16"></div>
-                        <div class="bit sat-bit" id="hour-bit-32"></div>
-                        <div class="bit sat-bit" id="hour-bit-64"></div>
-                        <div class="bit sat-bit" id="hour-bit-128"></div>
-                  </div>
-                  <span class="sabiranjeSati"><span id="cifra1"></span>+<span id="cifra2"></span></span>
+    <div class="sat-container">
+        <div class="sati">
+            <h1>SATI</h1>
+            <div class="container">
+                <div class="bit sat-bit" id="hour-bit-128"></div>
+                <div class="bit sat-bit" id="hour-bit-64"></div>
+                <div class="bit sat-bit" id="hour-bit-32"></div>
+                <div class="bit sat-bit" id="hour-bit-16"></div>
+                <div class="bit sat-bit" id="hour-bit-8"></div>
+                <div class="bit sat-bit" id="hour-bit-4"></div>
+                <div class="bit sat-bit" id="hour-bit-2"></div>
+                <div class="bit sat-bit" id="hour-bit-1"></div>
             </div>
-            <div class="sati">
-                  <h1>MINUTI</h1>
-                  <div class="container">
-                        <div class="bit minute-bit" id="minute-bit-1"></div>
-                        <div class="bit minute-bit" id="minute-bit-2"></div>
-                        <div class="bit minute-bit" id="minute-bit-4"></div>
-                        <div class="bit minute-bit" id="minute-bit-8"></div>
-                        <div class="bit minute-bit" id="minute-bit-16"></div>
-                        <div class="bit minute-bit" id="minute-bit-32"></div>
-                        <div class="bit minute-bit" id="minute-bit-64"></div>
-                        <div class="bit minute-bit" id="minute-bit-128"></div>
-                  </div>
-                  <span class="sabiranjeMinuti"><span id="cifra1"></span>+<span id="cifra2"></span></span>
-            </div>
-            <div class="sati">
-                  <h1>SEKUNDE</h1>
-                  <div class="container">
-                        <div class="bit second-bit" id="second-bit-1"></div>
-                        <div class="bit second-bit" id="second-bit-2"></div>
-                        <div class="bit second-bit" id="second-bit-4"></div>
-                        <div class="bit second-bit" id="second-bit-8"></div>
-                        <div class="bit second-bit" id="second-bit-16"></div>
-                        <div class="bit second-bit" id="second-bit-32"></div>
-                        <div class="bit second-bit" id="second-bit-64"></div>
-                        <div class="bit second-bit" id="second-bit-128"></div>
-                  </div>
-                  <span class="sabiranjeSekunde"><span id="cifra1"></span>+<span id="cifra2"></span></span>
-            </div>
-            <div class="sati">
-                  <h1>MILISEKUNDE</h1>
-                  <div class="container">
-                        <div class="bit millisecond-bit" id="millisecond-bit-1"></div>
-                        <div class="bit millisecond-bit" id="millisecond-bit-2"></div>
-                        <div class="bit millisecond-bit" id="millisecond-bit-4"></div>
-                        <div class="bit millisecond-bit" id="millisecond-bit-8"></div>
-                        <div class="bit millisecond-bit" id="millisecond-bit-16"></div>
-                        <div class="bit millisecond-bit" id="millisecond-bit-32"></div>
-                        <div class="bit millisecond-bit" id="millisecond-bit-64"></div>
-                        <div class="bit millisecond-bit" id="millisecond-bit-128"></div>
-                  </div>
-                  <span class="sabiranjeMilisekunde"><span id="cifra1"></span>+<span id="cifra2"></span>+<span id="cifra3"></span></span>
-            </div>
-      </div>
-      <div class="vreme">
-            <span class="sat">00</span>
-            <p>:</p>
-            <span class="minut">00</span>
-            <p>:</p>
-            <span class="sekunda">00</span>
-            <p>:</p>
-            <span class="milisekunda">00</span>
-      </div>
-      <h1>Brzina <span id="brzina"></span></h1>
-      <div class="slider-container">
-            <input type="range" min="1" max="1000" value="1" class="slider" id="myRange">
         </div>
+        <div class="sati">
+            <h1>MINUTI</h1>
+            <div class="container">
+                <div class="bit minute-bit" id="minute-bit-128"></div>
+                <div class="bit minute-bit" id="minute-bit-64"></div>
+                <div class="bit minute-bit" id="minute-bit-32"></div>
+                <div class="bit minute-bit" id="minute-bit-16"></div>
+                <div class="bit minute-bit" id="minute-bit-8"></div>
+                <div class="bit minute-bit" id="minute-bit-4"></div>
+                <div class="bit minute-bit" id="minute-bit-2"></div>
+                <div class="bit minute-bit" id="minute-bit-1"></div>
+            </div>
+        </div>
+        <div class="sati">
+            <h1>SEKUNDE</h1>
+            <div class="container">
+                <div class="bit second-bit" id="second-bit-128"></div>
+                <div class="bit second-bit" id="second-bit-64"></div>
+                <div class="bit second-bit" id="second-bit-32"></div>
+                <div class="bit second-bit" id="second-bit-16"></div>
+                <div class="bit second-bit" id="second-bit-8"></div>
+                <div class="bit second-bit" id="second-bit-4"></div>
+                <div class="bit second-bit" id="second-bit-2"></div>
+                <div class="bit second-bit" id="second-bit-1"></div>
+            </div>
+        </div>
+        <div class="sati">
+            <h1>MILISEKUNDE</h1>
+            <div class="container">
+                <div class="bit millisecond-bit" id="millisecond-bit-128"></div>
+                <div class="bit millisecond-bit" id="millisecond-bit-64"></div>
+                <div class="bit millisecond-bit" id="millisecond-bit-32"></div>
+                <div class="bit millisecond-bit" id="millisecond-bit-16"></div>
+                <div class="bit millisecond-bit" id="millisecond-bit-8"></div>
+                <div class="bit millisecond-bit" id="millisecond-bit-4"></div>
+                <div class="bit millisecond-bit" id="millisecond-bit-2"></div>
+                <div class="bit millisecond-bit" id="millisecond-bit-1"></div>
+            </div>
+        </div>
+    </div>
+    <div class="vreme">
+        <span class="sat">00</span>
+        <p>:</p>
+        <span class="minut">00</span>
+        <p>:</p>
+        <span class="sekunda">00</span>
+        <p>:</p>
+        <span class="milisekunda">000</span>
+    </div>
+    <h1>Brzina <span id="brzina">0</span></h1>
+    <div class="slider-container">
+        <input type="range" min="1" max="1000" value="1" class="slider" id="myRange">
+    </div>
 </body>
 </html>

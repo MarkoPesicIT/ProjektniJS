@@ -1,9 +1,15 @@
+// When the DOM content is loaded
 document.addEventListener('DOMContentLoaded', function () {
+    // Get the slider element and output element
     const slider = document.getElementById('myRange');
     const output = document.getElementById('brzina');
-    let refreshRate = slider.value;
 
-    output.innerHTML = slider.value; // Display the default slider value
+    // Initialize refresh rate and clock interval
+    let refreshRate = slider.value;
+    let clockInterval;
+
+    // Display the default slider value
+    output.innerHTML = slider.value;
 
     // Update the current slider value (refresh rate) when the slider is moved
     slider.oninput = function () {
@@ -13,33 +19,34 @@ document.addEventListener('DOMContentLoaded', function () {
         clockInterval = setInterval(updateClock, refreshRate); // Set new interval with updated refresh rate
     };
 
+    // Function to update the clock display
     function updateClock() {
-        const now = new Date();
-        const baseTime = now.getTime(); // Get current time in milliseconds
+        const currentDate = new Date(); // Get current date
+        const baseTime = currentDate.getTime(); // Get current time in milliseconds
 
-        const hours = Math.floor(baseTime / (3600 * 1000)).toString(2).padStart(8, '0');
-        const minutes = Math.floor((baseTime % (3600 * 1000)) / (60 * 1000)).toString(2).padStart(8, '0');
-        const seconds = Math.floor((baseTime % (60 * 1000)) / 1000).toString(2).padStart(8, '0');
-        const milliseconds = (baseTime % 1000).toString(2).padStart(12, '0');
+        // Calculate hours, minutes, seconds, and milliseconds in binary format
+        const hours = currentDate.getHours().toString(2).padStart(8, '0');
+        const minutes = currentDate.getMinutes().toString(2).padStart(8, '0');
+        const seconds = currentDate.getSeconds().toString(2).padStart(8, '0');
+        const milliseconds = currentDate.getMilliseconds().toString(2).padStart(12, '0');
 
+        // Update the visual representation of time
         updateBits(hours, 'hour-bit-');
         updateBits(minutes, 'minute-bit-');
         updateBits(seconds, 'second-bit-');
         updateBits(milliseconds, 'millisecond-bit-');
 
-        updateAddition(hours, 'sabiranjeSati');
-        updateAddition(minutes, 'sabiranjeMinuti');
-        updateAddition(seconds, 'sabiranjeSekunde');
-        updateAddition(milliseconds, 'sabiranjeMilisekunde');
-
-        document.querySelector('.sat').textContent = Math.floor(baseTime / (3600 * 1000)).toString().padStart(2, '0');
-        document.querySelector('.minut').textContent = Math.floor((baseTime % (3600 * 1000)) / (60 * 1000)).toString().padStart(2, '0');
-        document.querySelector('.sekunda').textContent = Math.floor((baseTime % (60 * 1000)) / 1000).toString().padStart(2, '0');
-        document.querySelector('.milisekunda').textContent = (baseTime % 1000).toString().padStart(3, '0');
+        // Update time display in decimal format
+        document.querySelector('.sat').textContent = currentDate.getHours().toString().padStart(2, '0');
+        document.querySelector('.minut').textContent = currentDate.getMinutes().toString().padStart(2, '0');
+        document.querySelector('.sekunda').textContent = currentDate.getSeconds().toString().padStart(2, '0');
+        document.querySelector('.milisekunda').textContent = currentDate.getMilliseconds().toString().padStart(3, '0');
     }
 
-    let clockInterval = setInterval(updateClock, refreshRate); // Initial clock update
+    // Initial clock update
+    clockInterval = setInterval(updateClock, refreshRate);
 
+    // Function to update the visual representation of time
     function updateBits(time, prefix) {
         for (let i = 0; i < time.length; i++) {
             const bitId = prefix + (Math.pow(2, 7 - i)).toString();
@@ -53,17 +60,4 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
-
-    function updateAddition(time, sabiranjeClass) {
-        const cifra1 = time.slice(0, 4);
-        const cifra2 = time.slice(4, 8);
-        const cifra3 = time.slice(8, 12);
-        const sabiranjeSpan = document.querySelector('.' + sabiranjeClass);
-        sabiranjeSpan.querySelector('.cifra#cifra1').textContent = parseInt(cifra1, 2).toString();
-        sabiranjeSpan.querySelector('.cifra#cifra2').textContent = parseInt(cifra2, 2).toString();
-        if (cifra3) {
-            sabiranjeSpan.querySelector('.cifra#cifra3').textContent = parseInt(cifra3, 2).toString();
-        }
-    }
-    
 });
