@@ -63,7 +63,6 @@ html
 	font-size: 4rem;
 	align-items: center;
 	justify-content: space-evenly;
-	width: 80%;
 	height: 5vw;
 }
 
@@ -83,7 +82,7 @@ html
 
 .slider-container
 {
-	width: 80%;
+	width: 100%;
 	margin: 50px auto;
 }
 
@@ -120,23 +119,6 @@ html
 	cursor: pointer;
 }
 
-.sabiranjeSati,
-.sabiranjeMinuti,
-.sabiranjeSekunde,
-.sabiranjeMilisekunde
-{
-	display: block;
-	margin-top: 1rem;
-}
-
-.sabiranjeSati span,
-.sabiranjeMinuti span,
-.sabiranjeSekunde span,
-.sabiranjeMilisekunde span
-{
-	margin: 0 0.5rem;
-}
-
 .sat,
 .minut,
 .sekunda,
@@ -152,3 +134,31 @@ html
 	font-size: 2rem;
 	margin-top: 2rem;
 }
+.donjideo{
+	display: flex;
+	flex-direction: row;
+	gap: 6rem;
+}
+.sabiranje{
+	font-size: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.vremeBrzina{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#milisekunde {
+	display: inline-block;
+  }
+  
+  #milisekunde span {
+	display: inline-block;
+	width: 60px;
+	text-align: center;
+  }
+  
