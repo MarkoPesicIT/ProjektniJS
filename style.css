@@ -1,121 +1,154 @@
-body,html{
-      margin: 0;
-      overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #252525;
-      overflow-y: hidden;
-}
-*{
-      color: white;
-}
-.sat-container{
-      width: 100%;
-      gap: 3rem;
-      display: flex;
-      flex-direction: row;
-      column-count: 4;
-      align-items: center;
-      justify-content: space-evenly;
-      text-align: center;
+
+body,
+html
+{
+	margin: 0;
+	overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #252525;
+	overflow-y: hidden;
 }
 
-.container{
-      column-count: 2;
-      column-gap: 2rem;
-}
-.bit{
-      margin-bottom: 2rem;
-      border-radius: 50%;
-      background-color: #272727;
-      box-shadow: inset 0 0 1rem rgba(255, 255, 255, 0.1);
-      aspect-ratio: 1/1;
-      width: 6rem;
+*
+{
+	color: white;
 }
 
-.vreme{
-      display: flex;
-      flex-direction: row;
-      font-size: 4rem;
-      align-items: center;
-      justify-content: space-evenly;
-      width: 80%;
-}
-.sati{
-      padding: 1rem;
-}
-.active{
-      background-color: blue;
-      box-shadow: 0 0 1.5rem rgb(0, 0, 255),0 0 1.5rem rgba(137, 91, 255, 0.574);
+.sat-container
+{
+	width: 100%;
+	gap: 3rem;
+	display: flex;
+	flex-direction: row;
+	column-count: 4;
+	align-items: center;
+	justify-content: space-evenly;
+	text-align: center;
 }
 
-.slider-container {
-      width: 80%;
-      margin: 50px auto;
-  }
+.container
+{
+	column-count: 2;
+	column-gap: 2rem;
+}
 
-  .slider {
-      -webkit-appearance: none;
-      width: 100%;
-      height: 2rem;
-      border-radius: 1rem;
-      background: #d3d3d3;
-      outline: none;
-      opacity: 0.7;
-      -webkit-transition: .2s;
-      transition: opacity .2s;
-  }
+.bit
+{
+	margin-bottom: 2rem;
+	border-radius: 50%;
+	background-color: #272727;
+	box-shadow: inset 0 0 1rem rgba(255, 255, 255, 0.1);
+	aspect-ratio: 1/1;
+	width: 6rem;
+}
 
-  .slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 3rem;
-      aspect-ratio: 1/1;
-      border-radius: 50%;
-      background: blue;
-      cursor: pointer;
-  }
+.ms
+{
+	column-count: 3;
+}
 
-  .slider::-moz-range-thumb {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background: #4CAF50;
-      cursor: pointer;
-  }
+.displayNone
+{
+	display: none;
+}
 
-  .sabiranjeSati,
+.vreme
+{
+	display: flex;
+	flex-direction: row;
+	font-size: 4rem;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 80%;
+	height: 5vw;
+}
+
+.sati,
+.minuti,
+.sekunde,
+.milisekunde
+{
+	padding: 1rem;
+}
+
+.active
+{
+	background-color: blue;
+	box-shadow: 0 0 1.5rem rgb(0, 0, 255), 0 0 1.5rem rgba(137, 91, 255, 0.574);
+}
+
+.slider-container
+{
+	width: 80%;
+	margin: 50px auto;
+}
+
+.slider
+{
+	-webkit-appearance: none;
+	width: 100%;
+	height: 2rem;
+	border-radius: 1rem;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb
+{
+	-webkit-appearance: none;
+	appearance: none;
+	width: 3rem;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	background: blue;
+	cursor: pointer;
+}
+
+.slider::-moz-range-thumb
+{
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #4CAF50;
+	cursor: pointer;
+}
+
+.sabiranjeSati,
 .sabiranjeMinuti,
 .sabiranjeSekunde,
-.sabiranjeMilisekunde {
-    display: block;
-    margin-top: 1rem;
+.sabiranjeMilisekunde
+{
+	display: block;
+	margin-top: 1rem;
 }
 
 .sabiranjeSati span,
 .sabiranjeMinuti span,
 .sabiranjeSekunde span,
-.sabiranjeMilisekunde span {
-    margin: 0 0.5rem;
-}
-
-.vreme {
-    margin-top: 3rem;
+.sabiranjeMilisekunde span
+{
+	margin: 0 0.5rem;
 }
 
 .sat,
 .minut,
 .sekunda,
-.milisekunda {
-    padding: 0.5rem 1rem;
-    background-color: #272727;
-    border-radius: 0.5rem;
+.milisekunda
+{
+	padding: 0.5rem 1rem;
+	background-color: #272727;
+	border-radius: 0.5rem;
 }
 
-.h1 {
-    font-size: 2rem;
-    margin-top: 2rem;
+.h1
+{
+	font-size: 2rem;
+	margin-top: 2rem;
 }

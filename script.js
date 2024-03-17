@@ -1,63 +1,85 @@
-// When the DOM content is loaded
-document.addEventListener('DOMContentLoaded', function () {
-    // Get the slider element and output element
-    const slider = document.getElementById('myRange');
-    const output = document.getElementById('brzina');
 
-    // Initialize refresh rate and clock interval
-    let refreshRate = slider.value;
-    let clockInterval;
+// koristimo ovo da bi se javascript pokrenuo nakon sto se ucitao ceo html
+document.addEventListener('DOMContentLoaded', function()
+{
+	// Klizač za kontrolu brzine osvežavanja
+	const slider = document.getElementById('myRange');
 
-    // Display the default slider value
-    output.innerHTML = slider.value;
+	// Element koji prikazuje trenutnu brzinu
+	const izlaz = document.getElementById('brzina');
 
-    // Update the current slider value (refresh rate) when the slider is moved
-    slider.oninput = function () {
-        refreshRate = this.value;
-        output.innerHTML = this.value;
-        clearInterval(clockInterval); // Clear the previous interval
-        clockInterval = setInterval(updateClock, refreshRate); // Set new interval with updated refresh rate
-    };
+	// Postavljanje početnih vrednosti
+	let osvezavanje = slider.value;
 
-    // Function to update the clock display
-    function updateClock() {
-        const currentDate = new Date(); // Get current date
-        const baseTime = currentDate.getTime(); // Get current time in milliseconds
+	// Trenutna brzina osvežavanja
+	let brzina;
 
-        // Calculate hours, minutes, seconds, and milliseconds in binary format
-        const hours = currentDate.getHours().toString(2).padStart(8, '0');
-        const minutes = currentDate.getMinutes().toString(2).padStart(8, '0');
-        const seconds = currentDate.getSeconds().toString(2).padStart(8, '0');
-        const milliseconds = currentDate.getMilliseconds().toString(2).padStart(12, '0');
+	// Postavljanje početne vrednosti brzine
+	izlaz.innerHTML = slider.value;
 
-        // Update the visual representation of time
-        updateBits(hours, 'hour-bit-');
-        updateBits(minutes, 'minute-bit-');
-        updateBits(seconds, 'second-bit-');
-        updateBits(milliseconds, 'millisecond-bit-');
+	// Funkcija koja se pokreće pri promeni vrednosti klizača
+	slider.oninput = function()
+	{
+		// Ažuriranje trenutne brzine
+		osvezavanje = this.value;
 
-        // Update time display in decimal format
-        document.querySelector('.sat').textContent = currentDate.getHours().toString().padStart(2, '0');
-        document.querySelector('.minut').textContent = currentDate.getMinutes().toString().padStart(2, '0');
-        document.querySelector('.sekunda').textContent = currentDate.getSeconds().toString().padStart(2, '0');
-        document.querySelector('.milisekunda').textContent = currentDate.getMilliseconds().toString().padStart(3, '0');
-    }
+		// Ažuriranje prikaza trenutne brzine
+		izlaz.innerHTML = this.value;
 
-    // Initial clock update
-    clockInterval = setInterval(updateClock, refreshRate);
+		// Prekidanje prethodnog intervala
+		clearInterval(brzina);
 
-    // Function to update the visual representation of time
-    function updateBits(time, prefix) {
-        for (let i = 0; i < time.length; i++) {
-            const bitId = prefix + (Math.pow(2, 7 - i)).toString();
-            const bitElement = document.getElementById(bitId);
-            if (bitElement) {
-                if (time[i] === '1') {
-                    bitElement.classList.add('active');
-                } else {
-                    bitElement.classList.remove('active');
-                }
-            }
-        }
-    }
+		// Postavljanje novog intervala sa novom brzinom
+		brzina = setInterval(updateClock, osvezavanje);
+	};
+	// Funkcija za osvežavanje sata
+	function updateClock()
+	{
+		// Trenutni datum i vreme
+		const trenutnoVreme = new Date();
+
+		// Pretvaranje trenutnog vremena u binarni format
+		const sati = trenutnoVreme.getHours().toString(2).padStart(8, '0');
+		const minuti = trenutnoVreme.getMinutes().toString(2).padStart(8, '0');
+		const sekunde = trenutnoVreme.getSeconds().toString(2).padStart(8, '0');
+		const milisekunde = trenutnoVreme.getMilliseconds().toString(2).padStart(12, '0');
+
+		// Ažuriranje prikaza binarnog vremena
+		bit(sati, 'sati-bit-');
+		bit(minuti, 'minuti-bit-');
+		bit(sekunde, 'sekunde-bit-');
+		bit(milisekunde, 'millisekunde-bit-');
+
+		// Ažuriranje klasičnog prikaza sata
+		document.querySelector('.sat').textContent = trenutnoVreme.getHours().toString().padStart(2, '0');
+		document.querySelector('.minut').textContent = trenutnoVreme.getMinutes().toString().padStart(2, '0');
+		document.querySelector('.sekunda').textContent = trenutnoVreme.getSeconds().toString().padStart(2, '0');
+		document.querySelector('.milisekunda').textContent = trenutnoVreme.getMilliseconds().toString().padStart(3, '0');
+	}
+
+	// Pokretanje sata
+	brzina = setInterval(updateClock, osvezavanje);
+
+	// Funkcija za ažuriranje binarnog prikaza vremena
+	function bit(vreme, id)
+	{
+		const length = vreme.length;
+		const startIndex = (length === 12) ? 11 : 7;
+		for (let i = 0; i < length; i++)
+		{
+			const bitId = id + (Math.pow(2, startIndex - i)).toString();
+			const bit = document.getElementById(bitId);
+			if (bit)
+			{
+				if (vreme[i] === '1')
+				{
+					bit.classList.add('active');
+				}
+				else
+				{
+					bit.classList.remove('active');
+				}
+			}
+		}
+	}
 });
